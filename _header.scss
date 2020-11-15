@@ -1,0 +1,13 @@
+// l'imbrication et le this&:
+header {
+    background-color: $primaryColor;
+    height: 200px;
+    p {
+        //& fait réf à l'élément parent
+        &:hover {
+            text-decoration: underline;
+            color: white;
+        }
+    }
+    
+}

@@ -1,0 +1,148 @@
+//syntaxe variable:
+$primaryColor: purple;
+
+// import d'un autre fichier: donne accès au fichier importé aux variables et évite de lui créer un jumeau en .css
+// le nom du fichier importé doit commencer par _
+@import 'header';
+
+// install sass sur mac: brew install sass/sass/sass
+// invite de cde pour une compilation automatique: sass --watch cheminRelatifEnScss:cheminRelatifEnCss
+// trouver le chemin relatif d'un fichier: Dans finder/clic droit sur fichier/après avoir cliquer press option/copier en tant que nom de chemin
+
+footer {
+    background-color: $primaryColor;
+    height: 100px;
+    color: white;
+}
+
+%alert {
+    color: white;
+    padding: 50px;
+    margin: 20px;
+    // compatibilité avec Mozilla:
+    -moz-border-radius: 20px;
+    // compatibilité avec webkit:
+    -webkit-border-radius: 20px;
+    // compatibilité avec microsoft:
+    -ms-border-radius: 20px;
+    // obligatoire: confirmer pour tous les nav:
+    border-radius: 20px;
+}
+
+// . = class    # = id
+// extend = hérite de ...
+.alert-red {
+    @extend %alert;
+    background-color: red;
+}
+
+.alert-green {
+    @extend %alert;
+    background-color: green;
+}
+
+@mixin border-radius($degres) {
+    padding: 10px;
+    background-color: pink;
+    height: 25px;
+    -moz-border-radius: $degres /*$degres px -> ne fonctionne pas*/;
+    -webkit-border-radius: $degres;
+    -ms-border-radius: $degres;
+    border-radius: $degres;
+}
+
+// map function:
+$ListForMap: ( color: blue, font-size: 30px);
+
+#test-mixin1 {
+    margin: 20px;
+    color: map-get($map: $ListForMap, $key: color);
+    font-size: map-get($map: $ListForMap, $key: font-size);;
+    text-align: center;
+    @include border-radius(30px);
+    //@include border-radius(30 -> ne fonctionne pas);
+}
+
+// function ! ne pas oublier de return
+@function somme($nbA, $nbB){
+    @return $nbB + $nbA;
+}
+
+#test-mixin2 {
+    margin: somme(40px,10px);
+    color: black;
+    text-align: center;
+    @include border-radius(10px);
+    //@include border-radius(30 -> ne fonctionne pas);
+}
+
+$theme: purple;
+%theme {
+    margin: 10px;
+    padding: 20px;
+    @if($theme == purple) {
+        color: white;
+        background-color: purple;
+    }
+    @else if($theme == green) {
+        color: white;
+        background-color: green;
+    }
+    @else {
+        color: black;
+        background-color: yellow;
+    }
+}
+
+.theme-test {
+    @extend %theme;
+}
+
+ul {
+    margin-left: 100px;
+};
+// ne pas oublier $ devant i:
+// générera dans le fichier css : 3 class li4/li5/li6 en trop par rapport à html:
+@for $i from 1 through 6 {
+    ul .li#{$i} {
+        @if($i == 1){
+            color: red;
+        }
+        @else {
+            color: blue;
+        }
+    };
+}
+
+$list: chat1, chat2, chat3;
+// ***** append() un nouvel item à une liste:
+$newItem: newItem;
+$list: append($list, $newItem, comma);
+// *****
+// protègerais ?????? mon img, on ne peut pas la copier...
+@each $img in $list {
+    .img-#{$img} {
+        background-image: url('./img/#{$img}.png');
+        background-size: 80%;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 200px;
+    }
+}
+
+// ************************ attention boucles infinies *************************
+$nb:1;
+@while $nb <= 3 {
+    .p#{$nb} {
+        background-color: greenyellow;
+        color: black
+    };
+    $nb: $nb + 1;
+}
+
+$fruitsList: banane, "jean pierre", peche;
+.nth-test {
+    content: nth($fruitsList, 2);
+    height: 50px;
+    background-color: blueviolet;
+}

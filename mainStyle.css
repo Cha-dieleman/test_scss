@@ -1,0 +1,149 @@
+header {
+  background-color: purple;
+  height: 200px;
+}
+header p:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+footer {
+  background-color: purple;
+  height: 100px;
+  color: white;
+}
+
+.alert-green, .alert-red {
+  color: white;
+  padding: 50px;
+  margin: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -ms-border-radius: 20px;
+  border-radius: 20px;
+}
+
+.alert-red {
+  background-color: red;
+}
+
+.alert-green {
+  background-color: green;
+}
+
+#test-mixin1 {
+  margin: 20px;
+  color: blue;
+  font-size: 30px;
+  text-align: center;
+  padding: 10px;
+  background-color: pink;
+  height: 25px;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -ms-border-radius: 30px;
+  border-radius: 30px;
+}
+
+#test-mixin2 {
+  margin: 50px;
+  color: black;
+  text-align: center;
+  padding: 10px;
+  background-color: pink;
+  height: 25px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.theme-test {
+  margin: 10px;
+  padding: 20px;
+  color: white;
+  background-color: purple;
+}
+
+ul {
+  margin-left: 100px;
+}
+
+ul .li1 {
+  color: red;
+}
+
+ul .li2 {
+  color: blue;
+}
+
+ul .li3 {
+  color: blue;
+}
+
+ul .li4 {
+  color: blue;
+}
+
+ul .li5 {
+  color: blue;
+}
+
+ul .li6 {
+  color: blue;
+}
+
+.img-chat1 {
+  background-image: url("./img/chat1.png");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 200px;
+}
+
+.img-chat2 {
+  background-image: url("./img/chat2.png");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 200px;
+}
+
+.img-chat3 {
+  background-image: url("./img/chat3.png");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 200px;
+}
+
+.img-newItem {
+  background-image: url("./img/newItem.png");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 200px;
+}
+
+.p1 {
+  background-color: greenyellow;
+  color: black;
+}
+
+.p2 {
+  background-color: greenyellow;
+  color: black;
+}
+
+.p3 {
+  background-color: greenyellow;
+  color: black;
+}
+
+.nth-test {
+  content: "jean pierre";
+  height: 50px;
+  background-color: blueviolet;
+}
+
+/*# sourceMappingURL=mainStyle.css.map */
